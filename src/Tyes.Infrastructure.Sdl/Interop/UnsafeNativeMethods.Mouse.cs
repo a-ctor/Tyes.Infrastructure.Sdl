@@ -6,6 +6,9 @@ namespace Tyes.Infrastructure.Sdl.Interop
   internal static partial class UnsafeNativeMethods
   {
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
+    public static extern SdlMouseButtonState SDL_GetMouseState (out int x, out int y);
+
+    [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
     public static extern SdlMouseButtonState SDL_GetGlobalMouseState (out int x, out int y);
   }
 }
