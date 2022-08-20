@@ -28,22 +28,19 @@ namespace Tyes.Infrastructure.Sdl.Interop
     public static extern void SDL_DestroyWindow (IntPtr window);
 
 
-    [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_DisableScreenSaver();
+    public static extern void SDL_DisableScreenSaver();
 
-    [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_EnableScreenSaver();
+    public static extern void SDL_EnableScreenSaver();
 
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
     [return: MarshalAs (UnmanagedType.Bool)]
     public static extern bool SDL_IsScreenSaverEnabled();
 
 
-    [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_SetWindowBordered (SdlWindow window, [MarshalAs (UnmanagedType.Bool)] bool hasBorder);
+    public static extern void SDL_SetWindowBordered (SdlWindow window, [MarshalAs (UnmanagedType.Bool)] bool hasBorder);
 
 
     [MustUseReturnValue]
@@ -79,9 +76,8 @@ namespace Tyes.Infrastructure.Sdl.Interop
     public static extern SdlResult SDL_SetWindowFullscreen (SdlWindow window, WindowFlags windowFlags);
 
 
-    [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_SetWindowGrab (SdlWindow window, [MarshalAs (UnmanagedType.Bool)] bool grabInput);
+    public static extern void SDL_SetWindowGrab (SdlWindow window, [MarshalAs (UnmanagedType.Bool)] bool grabInput);
 
 
     [MustUseReturnValue]
@@ -89,80 +85,64 @@ namespace Tyes.Infrastructure.Sdl.Interop
     public static extern SdlUIntResult SDL_GetWindowID (SdlWindow window);
 
 
-    [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_GetWindowMaximumSize (SdlWindow window, out int width, out int height);
+    public static extern void SDL_GetWindowMaximumSize (SdlWindow window, out int width, out int height);
 
-    [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_SetWindowMaximumSize (SdlWindow window, int width, int height);
+    public static extern void SDL_SetWindowMaximumSize (SdlWindow window, int width, int height);
 
 
-    [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_GetWindowMinimumSize (SdlWindow window, out int width, out int height);
+    public static extern void SDL_GetWindowMinimumSize (SdlWindow window, out int width, out int height);
 
-    [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_SetWindowMinimumSize (SdlWindow window, int width, int height);
+    public static extern void SDL_SetWindowMinimumSize (SdlWindow window, int width, int height);
 
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_GetWindowPosition (SdlWindow window, out int x, out int y);
+    public static extern void SDL_GetWindowPosition (SdlWindow window, out int x, out int y);
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_SetWindowPosition (SdlWindow window, int x, int y);
+    public static extern void SDL_SetWindowPosition (SdlWindow window, int x, int y);
 
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_SetWindowResizable (SdlWindow window, [MarshalAs (UnmanagedType.Bool)] bool canResize);
+    public static extern void SDL_SetWindowResizable (SdlWindow window, [MarshalAs (UnmanagedType.Bool)] bool canResize);
 
 
-    [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_GetWindowSize (SdlWindow window, out int width, out int height);
+    public static extern void SDL_GetWindowSize (SdlWindow window, out int width, out int height);
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_SetWindowSize (SdlWindow window, int width, int height);
+    public static extern void SDL_SetWindowSize (SdlWindow window, int width, int height);
 
 
     [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
     public static extern SdlStringResult SDL_GetWindowTitle (SdlWindow window);
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_SetWindowTitle (SdlWindow window, SdlString title);
+    public static extern void SDL_SetWindowTitle (SdlWindow window, SdlString title);
 
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_HideWindow (SdlWindow window);
+    public static extern void SDL_HideWindow (SdlWindow window);
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_ShowWindow (SdlWindow window);
+    public static extern void SDL_ShowWindow (SdlWindow window);
 
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_MinimizeWindow (SdlWindow window);
+    public static extern void SDL_MinimizeWindow (SdlWindow window);
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_MaximizeWindow (SdlWindow window);
+    public static extern void SDL_MaximizeWindow (SdlWindow window);
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_RestoreWindow (SdlWindow window);
+    public static extern void SDL_RestoreWindow (SdlWindow window);
 
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_RaiseWindow (SdlWindow window);
+    public static extern void SDL_RaiseWindow (SdlWindow window);
   }
 }

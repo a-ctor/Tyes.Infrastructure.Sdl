@@ -6,7 +6,6 @@ namespace Tyes.Infrastructure.Sdl.Interop
   /// Represents the result of a SDL call which returns a <typeparamref name="TResult" />, but requires explicit checking for
   /// errors.
   /// </summary>
-  /// <seealso cref="SdlVoidResult" />
   [StructLayout (LayoutKind.Sequential)]
   public readonly ref struct SdlResult<TResult>
     where TResult : unmanaged

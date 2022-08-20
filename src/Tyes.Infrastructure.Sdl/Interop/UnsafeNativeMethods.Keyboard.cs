@@ -43,17 +43,15 @@ namespace Tyes.Infrastructure.Sdl.Interop
     public static extern SdlResult<KeyCode> SDL_GetKeyFromName (SdlString name);
 
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_StartTextInput();
+    public static extern void SDL_StartTextInput();
 
     [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
     [return: MarshalAs (UnmanagedType.Bool)]
     public static extern SdlResult<bool> SDL_IsTextInputActive();
 
-    [MustUseReturnValue]
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlVoidResult SDL_StopTextInput();
+    public static extern void SDL_StopTextInput();
   }
 }

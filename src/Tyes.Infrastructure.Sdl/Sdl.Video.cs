@@ -8,9 +8,9 @@ namespace Tyes.Infrastructure.Sdl
   {
     public static bool IsScreenSaverEnabled => UnsafeNativeMethods.SDL_IsScreenSaverEnabled();
 
-    public static void DisableScreenSaver() => UnsafeNativeMethods.SDL_DisableScreenSaver().Unwrap();
+    public static void DisableScreenSaver() => UnsafeNativeMethods.SDL_DisableScreenSaver();
 
-    public static void EnableScreenSaver() => UnsafeNativeMethods.SDL_EnableScreenSaver().Unwrap();
+    public static void EnableScreenSaver() => UnsafeNativeMethods.SDL_EnableScreenSaver();
 
 
     public static SdlWindow CreateWindow (string title, int width, int height, WindowFlags flags)

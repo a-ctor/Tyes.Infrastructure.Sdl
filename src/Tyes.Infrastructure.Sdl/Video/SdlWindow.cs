@@ -31,53 +31,53 @@ namespace Tyes.Infrastructure.Sdl.Video
     public bool IsResizeable
     {
       get => HasFlag (WindowFlags.Resizeable);
-      set => UnsafeNativeMethods.SDL_SetWindowResizable (this, value).Unwrap();
+      set => UnsafeNativeMethods.SDL_SetWindowResizable (this, value);
     }
 
     public bool IsBorderless
     {
       get => HasFlag (WindowFlags.Borderless);
-      set => UnsafeNativeMethods.SDL_SetWindowBordered (this, value).Unwrap();
+      set => UnsafeNativeMethods.SDL_SetWindowBordered (this, value);
     }
 
     public Point Position
     {
       get
       {
-        UnsafeNativeMethods.SDL_GetWindowPosition (this, out var x, out var y).Unwrap();
+        UnsafeNativeMethods.SDL_GetWindowPosition (this, out var x, out var y);
         return new Point (x, y);
       }
-      set => UnsafeNativeMethods.SDL_SetWindowPosition (this, value.X, value.Y).Unwrap();
+      set => UnsafeNativeMethods.SDL_SetWindowPosition (this, value.X, value.Y);
     }
 
     public Size Size
     {
       get
       {
-        UnsafeNativeMethods.SDL_GetWindowSize (this, out var width, out var height).Unwrap();
+        UnsafeNativeMethods.SDL_GetWindowSize (this, out var width, out var height);
         return new Size (width, height);
       }
-      set => UnsafeNativeMethods.SDL_SetWindowSize (this, value.Width, value.Width).Unwrap();
+      set => UnsafeNativeMethods.SDL_SetWindowSize (this, value.Width, value.Width);
     }
 
     public Size MinimumSize
     {
       get
       {
-        UnsafeNativeMethods.SDL_GetWindowMinimumSize (this, out var width, out var height).Unwrap();
+        UnsafeNativeMethods.SDL_GetWindowMinimumSize (this, out var width, out var height);
         return new Size (width, height);
       }
-      set => UnsafeNativeMethods.SDL_SetWindowMinimumSize (this, value.Width, value.Width).Unwrap();
+      set => UnsafeNativeMethods.SDL_SetWindowMinimumSize (this, value.Width, value.Width);
     }
 
     public Size MaximumSize
     {
       get
       {
-        UnsafeNativeMethods.SDL_GetWindowMaximumSize (this, out var width, out var height).Unwrap();
+        UnsafeNativeMethods.SDL_GetWindowMaximumSize (this, out var width, out var height);
         return new Size (width, height);
       }
-      set => UnsafeNativeMethods.SDL_SetWindowMaximumSize (this, value.Width, value.Width).Unwrap();
+      set => UnsafeNativeMethods.SDL_SetWindowMaximumSize (this, value.Width, value.Width);
     }
 
     public string Title
@@ -86,7 +86,7 @@ namespace Tyes.Infrastructure.Sdl.Video
       set
       {
         using var title = SdlString.Allocate (value);
-        UnsafeNativeMethods.SDL_SetWindowTitle (this, title).Unwrap();
+        UnsafeNativeMethods.SDL_SetWindowTitle (this, title);
       }
     }
 
@@ -127,17 +127,17 @@ namespace Tyes.Infrastructure.Sdl.Video
       return UnsafeNativeMethods.SDL_CreateRenderer (this, UnsafeNativeMethods.UnspecifiedRendererInfoIndex, rendererFlags).Unwrap (SdlRenderer.Factory);
     }
 
-    public void Hide() => UnsafeNativeMethods.SDL_HideWindow (this).Unwrap();
+    public void Hide() => UnsafeNativeMethods.SDL_HideWindow (this);
 
-    public void Show() => UnsafeNativeMethods.SDL_ShowWindow (this).Unwrap();
+    public void Show() => UnsafeNativeMethods.SDL_ShowWindow (this);
 
-    public void Minimize() => UnsafeNativeMethods.SDL_MinimizeWindow (this).Unwrap();
+    public void Minimize() => UnsafeNativeMethods.SDL_MinimizeWindow (this);
 
-    public void Maximize() => UnsafeNativeMethods.SDL_MaximizeWindow (this).Unwrap();
+    public void Maximize() => UnsafeNativeMethods.SDL_MaximizeWindow (this);
 
-    public void Restore() => UnsafeNativeMethods.SDL_RestoreWindow (this).Unwrap();
+    public void Restore() => UnsafeNativeMethods.SDL_RestoreWindow (this);
 
-    public void Raise() => UnsafeNativeMethods.SDL_RaiseWindow (this).Unwrap();
+    public void Raise() => UnsafeNativeMethods.SDL_RaiseWindow (this);
 
 
     public void DisableFullscreen() => UnsafeNativeMethods.SDL_SetWindowFullscreen (this, WindowFlags.None).Unwrap();
@@ -147,9 +147,9 @@ namespace Tyes.Infrastructure.Sdl.Video
     public void EnableBorderlessFullscreen() => UnsafeNativeMethods.SDL_SetWindowFullscreen (this, WindowFlags.FullscreenDesktop).Unwrap();
 
 
-    public void DisableInputGrabbing() => UnsafeNativeMethods.SDL_SetWindowGrab (this, false).Unwrap();
+    public void DisableInputGrabbing() => UnsafeNativeMethods.SDL_SetWindowGrab (this, false);
 
-    public void EnableInputGrabbing() => UnsafeNativeMethods.SDL_SetWindowGrab (this, true).Unwrap();
+    public void EnableInputGrabbing() => UnsafeNativeMethods.SDL_SetWindowGrab (this, true);
 
 
     public bool HasFlag (WindowFlags flag)

@@ -64,12 +64,12 @@ namespace Tyes.Infrastructure.Sdl.Input
 
     public static void StartTextInput()
     {
-      UnsafeNativeMethods.SDL_StartTextInput().Unwrap();
+      UnsafeNativeMethods.SDL_StartTextInput();
     }
 
     public static void StopTextInput()
     {
-      UnsafeNativeMethods.SDL_StopTextInput().Unwrap();
+      UnsafeNativeMethods.SDL_StopTextInput();
     }
   }
 }
