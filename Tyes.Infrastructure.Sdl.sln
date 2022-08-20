@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyes.Infrastructure.Sdl.UnitTests", "src\Tyes.Infrastructure.Sdl.UnitTests\Tyes.Infrastructure.Sdl.UnitTests.csproj", "{A43B7F1D-6F76-456D-A926-2E73647BFF77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyes.Infrastructure.Sdl", "src\Tyes.Infrastructure.Sdl\Tyes.Infrastructure.Sdl.csproj", "{71E05FDF-4E78-4D4D-8A57-5893DF4BFEFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyes.Infrastructure.Sdl.Image", "src\Tyes.Infrastructure.Sdl.Image\Tyes.Infrastructure.Sdl.Image.csproj", "{19AC2CAA-026A-4356-9BE6-5334E5E11B0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A43B7F1D-6F76-456D-A926-2E73647BFF77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A43B7F1D-6F76-456D-A926-2E73647BFF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A43B7F1D-6F76-456D-A926-2E73647BFF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A43B7F1D-6F76-456D-A926-2E73647BFF77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71E05FDF-4E78-4D4D-8A57-5893DF4BFEFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71E05FDF-4E78-4D4D-8A57-5893DF4BFEFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71E05FDF-4E78-4D4D-8A57-5893DF4BFEFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71E05FDF-4E78-4D4D-8A57-5893DF4BFEFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19AC2CAA-026A-4356-9BE6-5334E5E11B0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19AC2CAA-026A-4356-9BE6-5334E5E11B0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19AC2CAA-026A-4356-9BE6-5334E5E11B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19AC2CAA-026A-4356-9BE6-5334E5E11B0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal
