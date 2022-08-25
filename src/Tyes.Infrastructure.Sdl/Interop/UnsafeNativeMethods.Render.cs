@@ -82,6 +82,22 @@ namespace Tyes.Infrastructure.Sdl.Interop
 
     [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
+    public static extern SdlResult SDL_GetTextureColorMod (SdlTexture texture, out byte r, out byte g, out byte b);
+  
+    [MustUseReturnValue]
+    [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
+    public static extern SdlResult SDL_SetTextureColorMod (SdlTexture texture, byte r, byte g, byte b);
+
+    [MustUseReturnValue]
+    [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
+    public static extern SdlResult SDL_GetTextureAlphaMod (SdlTexture texture, out byte a);
+
+    [MustUseReturnValue]
+    [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
+    public static extern SdlResult SDL_SetTextureAlphaMod (SdlTexture texture, byte a);
+
+    [MustUseReturnValue]
+    [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
     public static extern SdlResult SDL_RenderClear (SdlRenderer renderer);
 
     [MustUseReturnValue]
