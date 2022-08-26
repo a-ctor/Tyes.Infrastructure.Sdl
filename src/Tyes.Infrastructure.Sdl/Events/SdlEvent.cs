@@ -16,6 +16,12 @@ namespace Tyes.Infrastructure.Sdl.Events
 
     public readonly SdlEventType Type;
     public readonly uint Timestamp;
+
+    /// <inheritdoc />
+    public override string ToString()
+    {
+      return $"{nameof(Type)}: {Type}, {nameof(Timestamp)}: {Timestamp}";
+    }
   }
 
   /// <summary>
@@ -29,5 +35,11 @@ namespace Tyes.Infrastructure.Sdl.Events
     public readonly SdlEventType Type;
     public readonly uint Timestamp;
     public readonly TDetails Details;
+
+    /// <inheritdoc />
+    public override string ToString()
+    {
+      return $"{nameof(Type)}: {Type}, {nameof(Timestamp)}: {Timestamp}, {nameof(Details)}: {Details}";
+    }
   }
 }

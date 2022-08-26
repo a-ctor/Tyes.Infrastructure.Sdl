@@ -15,5 +15,11 @@ namespace Tyes.Infrastructure.Sdl.Input
 
     /// <inheritdoc />
     public bool CanBeCreatedFromEventOfType (SdlEventType eventType) => eventType == SdlEventType.KeyDown || eventType == SdlEventType.KeyUp;
+
+    /// <inheritdoc />
+    public override string ToString()
+    {
+      return $"{nameof(WindowID)}: {WindowID}, {nameof(State)}: {State}, {nameof(Repeat)}: {Repeat}, {nameof(ScanCode)}: {ScanCode}, {nameof(KeyCode)}: {KeyCode}, {nameof(Modifier)}: {Modifier}";
+    }
   }
 }
