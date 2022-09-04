@@ -156,7 +156,7 @@ public class SdlWindow : SdlSafeHandle
       throw SdlMarshal.GetSdlExceptionFromLastError ();
 
     Span<IntPtr> namesPtr = stackalloc IntPtr[(int)count];
-    if (!UnsafeNativeMethods.SDL_Vulkan_GetInstanceExtensions (this, out count, namesPtr.GetPinnableReference ()))
+    if (!UnsafeNativeMethods.SDL_Vulkan_GetInstanceExtensions (this, out count, ref namesPtr.GetPinnableReference ()))
       throw SdlMarshal.GetSdlExceptionFromLastError ();
 
     var names = new string[count];
