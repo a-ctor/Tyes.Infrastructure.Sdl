@@ -12,7 +12,6 @@ namespace Tyes.Infrastructure.Sdl
 
     public static void QuitSubsystem (SdlInitializationFlags sdlInitializationFlags) => UnsafeNativeMethods.SDL_QuitSubSystem (sdlInitializationFlags);
 
-
     public static SdlInitializationFlags InitializedSubsystems => UnsafeNativeMethods.SDL_WasInit (SdlInitializationFlags.None);
 
     public static SdlInitializationFlags WasInitialized (SdlInitializationFlags sdlInitializationFlags) => UnsafeNativeMethods.SDL_WasInit (sdlInitializationFlags);
