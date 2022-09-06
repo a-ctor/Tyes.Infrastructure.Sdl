@@ -28,9 +28,9 @@ namespace Tyes.Infrastructure.Sdl.Interop
     public static extern SdlInitializationFlags SDL_WasInit (SdlInitializationFlags sdlInitializationFlags);
 
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern bool SDL_Vulkan_GetInstanceExtensions(SdlWindow window, out uint count, ref IntPtr names);
+    public static extern bool SDL_Vulkan_GetInstanceExtensions (SdlWindow window, out uint count, ref IntPtr names);
 
     [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern bool SDL_Vulkan_GetInstanceExtensions(SdlWindow window, out uint count, IntPtr names);
+    public static extern bool SDL_Vulkan_GetInstanceExtensions (SdlWindow window, out uint count, IntPtr names);
   }
 }
