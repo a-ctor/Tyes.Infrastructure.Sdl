@@ -2,6 +2,7 @@ namespace Tyes.Infrastructure.Sdl.Video
 {
   using System;
   using System.Drawing;
+  using System.Runtime.InteropServices;
   using Interop;
   using Render;
 
@@ -32,6 +33,15 @@ namespace Tyes.Infrastructure.Sdl.Video
     {
       get => HasFlag (WindowFlags.Resizeable);
       set => UnsafeNativeMethods.SDL_SetWindowResizable (this, value);
+    }
+
+    public Size DrawableSize
+    {
+      get
+      {
+        UnsafeNativeMethods.SDL_Vulkan_GetDrawableSize (this, out var width, out var height);
+        return new Size (width, height);
+      }
     }
 
     public bool IsBorderless
@@ -125,6 +135,36 @@ namespace Tyes.Infrastructure.Sdl.Video
     public SdlRenderer CreateRenderer (SdlRendererFlags rendererFlags)
     {
       return UnsafeNativeMethods.SDL_CreateRenderer (this, UnsafeNativeMethods.UnspecifiedRendererInfoIndex, rendererFlags).Unwrap (SdlRenderer.Factory);
+    }
+
+    /// <summary>
+    ///   Creates a Vulkan surface for this window.
+    /// </summary>
+    /// <param name="vkInstance"></param>
+    /// <returns></returns>
+    public IntPtr GetVulkanSurface (IntPtr vkInstance)
+    {
+      UnsafeNativeMethods.SDL_Vulkan_CreateSurface (this, vkInstance, out var vulkanSurface);
+      return vulkanSurface;
+    }
+
+    /// <summary>
+    ///   Returns all Vulkan extension names which are required when drawing to a surface that was created from this window.
+    /// </summary>
+    public unsafe string[] GetRequiredVulkanExtensions ()
+    {
+      if (!UnsafeNativeMethods.SDL_Vulkan_GetInstanceExtensions (this, out var count, IntPtr.Zero))
+        throw SdlMarshal.GetSdlExceptionFromLastError ();
+
+      Span<IntPtr> namesPtr = stackalloc IntPtr[(int)count];
+      if (!UnsafeNativeMethods.SDL_Vulkan_GetInstanceExtensions (this, out count, ref namesPtr.GetPinnableReference ()))
+        throw SdlMarshal.GetSdlExceptionFromLastError ();
+
+      var names = new string[count];
+      for (var i = 0; i < namesPtr.Length; i++)
+        names[i] = Marshal.PtrToStringAnsi (namesPtr[i]) ?? throw new SdlException ($"Cannot parse names returned by {nameof(UnsafeNativeMethods.SDL_Vulkan_GetInstanceExtensions)}.");
+
+      return names;
     }
 
     public void Hide() => UnsafeNativeMethods.SDL_HideWindow (this);

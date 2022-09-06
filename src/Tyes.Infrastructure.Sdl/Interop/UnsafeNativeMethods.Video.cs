@@ -117,6 +117,10 @@ namespace Tyes.Infrastructure.Sdl.Interop
     public static extern void SDL_SetWindowSize (SdlWindow window, int width, int height);
 
 
+    [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
+    public static extern void SDL_Vulkan_GetDrawableSize (SdlWindow window, out int width, out int height);
+
+
     [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
     public static extern SdlStringResult SDL_GetWindowTitle (SdlWindow window);

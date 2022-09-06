@@ -2,6 +2,7 @@ namespace Tyes.Infrastructure.Sdl.Interop
 {
   using System.Runtime.InteropServices;
   using JetBrains.Annotations;
+  using Video;
 
   internal static partial class UnsafeNativeMethods
   {
@@ -25,5 +26,11 @@ namespace Tyes.Infrastructure.Sdl.Interop
 
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
     public static extern SdlInitializationFlags SDL_WasInit (SdlInitializationFlags sdlInitializationFlags);
+
+    [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
+    public static extern bool SDL_Vulkan_GetInstanceExtensions (SdlWindow window, out uint count, ref IntPtr names);
+
+    [DllImport(c_sdlName, CallingConvention = c_callingConvention)]
+    public static extern bool SDL_Vulkan_GetInstanceExtensions (SdlWindow window, out uint count, IntPtr names);
   }
 }
