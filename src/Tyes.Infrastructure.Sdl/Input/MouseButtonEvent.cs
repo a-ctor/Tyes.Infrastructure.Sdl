@@ -9,7 +9,7 @@ public readonly struct MouseButtonEvent : ISdlEvent
   public readonly uint WindowID;
   public readonly uint Which;
   public readonly WrappedEnum<SdlMouseButtons, byte> Button;
-  public readonly WrappedEnum<SdlMouseButtonState, byte> State;
+  public readonly WrappedEnum<SdlButtonState, byte> State;
   public readonly byte Clicks;
   public readonly int X;
   public readonly int Y;
