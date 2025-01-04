@@ -6,10 +6,10 @@ namespace Tyes.Infrastructure.Sdl.Input
   public enum SdlMouseButtons
   {
     // Changes to the values also need to be done in SdlMouseButtonState
-    Left = 0x0001,
-    Middle = 0x0002,
-    Right = 0x0004,
-    X1 = 0x0008,
-    X2 = 0x0010
+    Left = 1,
+    Middle = 2,
+    Right = 3,
+    X1 = 4,
+    X2 = 5
   }
 }
