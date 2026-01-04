@@ -2,11 +2,11 @@ namespace Tyes.Infrastructure.Sdl
 {
   using Interop;
 
-  public static partial class Sdl2
+  public static partial class Sdl
   {
-    public static void Initialize (SdlInitializationFlags sdlInitializationFlags) => UnsafeNativeMethods.SDL_Init (sdlInitializationFlags).Unwrap();
+    public static void Initialize (SdlInitializationFlags sdlInitializationFlags) => UnsafeNativeMethods.SDL_Init (sdlInitializationFlags).UnwrapTrue();
 
-    public static void InitializeSubsystem (SdlInitializationFlags sdlInitializationFlags) => UnsafeNativeMethods.SDL_InitSubSystem (sdlInitializationFlags).Unwrap();
+    public static void InitializeSubsystem (SdlInitializationFlags sdlInitializationFlags) => UnsafeNativeMethods.SDL_InitSubSystem (sdlInitializationFlags).UnwrapTrue();
 
     public static void Quit() => UnsafeNativeMethods.SDL_Quit();
 
