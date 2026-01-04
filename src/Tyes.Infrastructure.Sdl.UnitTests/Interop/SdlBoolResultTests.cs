@@ -22,7 +22,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Interop
     [Test]
     public void Unwrap_Error()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("Error");
       errorApiMock.Setup (e => e.SDL_ClearError());
 
@@ -41,7 +41,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Interop
     [Test]
     public void UnwrapTrue_FalseValue()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("Error");
       errorApiMock.Setup (e => e.SDL_ClearError());
 
@@ -53,7 +53,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Interop
     [Test]
     public void UnwrapTrue_Error()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("Error");
       errorApiMock.Setup (e => e.SDL_ClearError());
 
@@ -72,7 +72,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Interop
     [Test]
     public void UnwrapAmbiguous_FalseValue()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ((string?) null);
 
       using var errorApiNativeMock = errorApiMock.AsNativeMock();
@@ -83,7 +83,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Interop
     [Test]
     public void UnwrapAmbiguous_AmbiguousFalseValue()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("Error");
       errorApiMock.Setup (e => e.SDL_ClearError());
 
@@ -95,7 +95,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Interop
     [Test]
     public void UnwrapAmbiguous_Error()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("Error");
       errorApiMock.Setup (e => e.SDL_ClearError());
 

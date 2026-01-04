@@ -4,8 +4,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.TestInfrastructure
   using Sdl.Events;
   using Sdl.Interop;
 
-  [NativeMockInterface ("SDL2", DeclaringType = typeof(UnsafeNativeMethods))]
-  internal unsafe partial interface ISdl2EventNativeApi
+  [NativeMockInterface ("SDL3", DeclaringType = typeof(UnsafeNativeMethods))]
+  internal unsafe partial interface ISdl3EventNativeApi
   {
     SdlEventState SDL_EventState (SdlEventType eventType, SdlEventState eventState);
 

@@ -3,8 +3,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.TestInfrastructure
   using NativeMock;
   using Sdl.Interop;
 
-  [NativeMockInterface ("SDL2", DeclaringType = typeof(UnsafeNativeMethods))]
-  public interface ISdl2ErrorNativeApi
+  [NativeMockInterface ("SDL3", DeclaringType = typeof(UnsafeNativeMethods))]
+  public interface ISdl3ErrorNativeApi
   {
     void SDL_ClearError();
 

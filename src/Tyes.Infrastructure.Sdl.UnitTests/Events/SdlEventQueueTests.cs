@@ -14,7 +14,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
     [Test]
     public void GetEventState()
     {
-      var eventApiMock = Mock<ISdl2EventNativeApi>();
+      var eventApiMock = Mock<ISdl3EventNativeApi>();
       eventApiMock.Setup (e => e.SDL_EventState (SdlEventType.UserEvent, (SdlEventState) (-1))).Returns (SdlEventState.Ignore);
 
       using var eventApiNativeMock = eventApiMock.AsNativeMock();
@@ -25,7 +25,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
     [Test]
     public void SetEventState()
     {
-      var eventApiMock = Mock<ISdl2EventNativeApi>();
+      var eventApiMock = Mock<ISdl3EventNativeApi>();
       eventApiMock.Setup (e => e.SDL_EventState (SdlEventType.UserEvent, SdlEventState.Ignore)).Returns (SdlEventState.Ignore);
 
       using var eventApiNativeMock = eventApiMock.AsNativeMock();
@@ -36,8 +36,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
     [Test]
     public void Contains()
     {
-      using var eventApiNativeMock = new NativeMock<ISdl2EventNativeApi>();
-      eventApiNativeMock.Setup<ISdl2EventNativeApi.SDL_HasEventDelegate> (e => e.SDL_HasEvent, type =>
+      using var eventApiNativeMock = new NativeMock<ISdl3EventNativeApi>();
+      eventApiNativeMock.Setup<ISdl3EventNativeApi.SDL_HasEventDelegate> (e => e.SDL_HasEvent, type =>
       {
         Assert.That (type, Is.EqualTo (SdlEventType.UserEvent));
 
@@ -51,8 +51,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
     [Test]
     public void ContainsBetween()
     {
-      using var eventApiNativeMock = new NativeMock<ISdl2EventNativeApi>();
-      eventApiNativeMock.Setup<ISdl2EventNativeApi.SDL_HasEventsDelegate> (e => e.SDL_HasEvents, (minEventType, maxEventType) =>
+      using var eventApiNativeMock = new NativeMock<ISdl3EventNativeApi>();
+      eventApiNativeMock.Setup<ISdl3EventNativeApi.SDL_HasEventsDelegate> (e => e.SDL_HasEvents, (minEventType, maxEventType) =>
       {
         Assert.That (minEventType, Is.EqualTo (SdlEventType.KeyDown));
         Assert.That (maxEventType, Is.EqualTo (SdlEventType.KeyUp));
@@ -67,7 +67,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
     [Test]
     public void RemoveAll_SingleEvent()
     {
-      var eventApiMock = Mock<ISdl2EventNativeApi>();
+      var eventApiMock = Mock<ISdl3EventNativeApi>();
       eventApiMock.Setup (e => e.SDL_FlushEvent (SdlEventType.UserEvent));
 
       using var eventApiNativeMock = eventApiMock.AsNativeMock();
@@ -78,7 +78,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
     [Test]
     public void RemoveAll_EventRange()
     {
-      var eventApiMock = Mock<ISdl2EventNativeApi>();
+      var eventApiMock = Mock<ISdl3EventNativeApi>();
       eventApiMock.Setup (e => e.SDL_FlushEvents (SdlEventType.JoyDeviceAdded, SdlEventType.JoyDeviceRemoved));
 
       using var eventApiNativeMock = eventApiMock.AsNativeMock();
@@ -89,10 +89,10 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
     [Test]
     public void Push_SingleEvent()
     {
-      using var eventApiNativeMock = new NativeMock<ISdl2EventNativeApi>();
+      using var eventApiNativeMock = new NativeMock<ISdl3EventNativeApi>();
 
       SdlEvent sdlEvent = default;
-      eventApiNativeMock.Setup<ISdl2EventNativeApi.SDL_PushEventDelegate> (e => e.SDL_PushEvent,
+      eventApiNativeMock.Setup<ISdl3EventNativeApi.SDL_PushEventDelegate> (e => e.SDL_PushEvent,
         (in SdlEvent ev) =>
         {
           AssertUtility.SameReference (in sdlEvent, in ev);
@@ -109,8 +109,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
       Span<SdlEvent> events = stackalloc SdlEvent[2];
       var ptr = Unsafe.AsPointer (ref events[0]);
 
-      using var eventApiMock = new NativeMock<ISdl2EventNativeApi>();
-      eventApiMock.Setup<ISdl2EventNativeApi.SDL_PeepEventsDelegate> (e => e.SDL_PeepEvents, (buffer, size, action, minEventType, maxEventType) =>
+      using var eventApiMock = new NativeMock<ISdl3EventNativeApi>();
+      eventApiMock.Setup<ISdl3EventNativeApi.SDL_PeepEventsDelegate> (e => e.SDL_PeepEvents, (buffer, size, action, minEventType, maxEventType) =>
       {
         AssertUtility.SameReference (ptr, buffer);
         Assert.That (size, Is.EqualTo (2));
@@ -128,8 +128,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
       Span<SdlEvent> buffer = stackalloc SdlEvent[2];
       var ptr = Unsafe.AsPointer (ref buffer[0]);
 
-      using var eventApiMock = new NativeMock<ISdl2EventNativeApi>();
-      eventApiMock.Setup<ISdl2EventNativeApi.SDL_PeepEventsDelegate> (e => e.SDL_PeepEvents, (buffer, size, action, minEventType, maxEventType) =>
+      using var eventApiMock = new NativeMock<ISdl3EventNativeApi>();
+      eventApiMock.Setup<ISdl3EventNativeApi.SDL_PeepEventsDelegate> (e => e.SDL_PeepEvents, (buffer, size, action, minEventType, maxEventType) =>
       {
         AssertUtility.SameReference (ptr, buffer);
         Assert.That (size, Is.EqualTo (2));
@@ -149,8 +149,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
       Span<SdlEvent> buffer = stackalloc SdlEvent[2];
       var ptr = Unsafe.AsPointer (ref buffer[0]);
 
-      using var eventApiMock = new NativeMock<ISdl2EventNativeApi>();
-      eventApiMock.Setup<ISdl2EventNativeApi.SDL_PeepEventsDelegate> (e => e.SDL_PeepEvents, (buffer, size, action, minEventType, maxEventType) =>
+      using var eventApiMock = new NativeMock<ISdl3EventNativeApi>();
+      eventApiMock.Setup<ISdl3EventNativeApi.SDL_PeepEventsDelegate> (e => e.SDL_PeepEvents, (buffer, size, action, minEventType, maxEventType) =>
       {
         AssertUtility.SameReference (ptr, buffer);
         Assert.That (size, Is.EqualTo (2));
@@ -170,8 +170,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
       Span<SdlEvent> buffer = stackalloc SdlEvent[2];
       var ptr = Unsafe.AsPointer (ref buffer[0]);
 
-      using var eventApiMock = new NativeMock<ISdl2EventNativeApi>();
-      eventApiMock.Setup<ISdl2EventNativeApi.SDL_PeepEventsDelegate> (e => e.SDL_PeepEvents, (buffer, size, action, minEventType, maxEventType) =>
+      using var eventApiMock = new NativeMock<ISdl3EventNativeApi>();
+      eventApiMock.Setup<ISdl3EventNativeApi.SDL_PeepEventsDelegate> (e => e.SDL_PeepEvents, (buffer, size, action, minEventType, maxEventType) =>
       {
         AssertUtility.SameReference (ptr, buffer);
         Assert.That (size, Is.EqualTo (2));
@@ -191,8 +191,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
       Span<SdlEvent> buffer = stackalloc SdlEvent[2];
       var ptr = Unsafe.AsPointer (ref buffer[0]);
 
-      using var eventApiMock = new NativeMock<ISdl2EventNativeApi>();
-      eventApiMock.Setup<ISdl2EventNativeApi.SDL_PeepEventsDelegate> (e => e.SDL_PeepEvents, (buffer, size, action, minEventType, maxEventType) =>
+      using var eventApiMock = new NativeMock<ISdl3EventNativeApi>();
+      eventApiMock.Setup<ISdl3EventNativeApi.SDL_PeepEventsDelegate> (e => e.SDL_PeepEvents, (buffer, size, action, minEventType, maxEventType) =>
       {
         AssertUtility.SameReference (ptr, buffer);
         Assert.That (size, Is.EqualTo (2));
@@ -209,8 +209,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
     [Test]
     public void Poll()
     {
-      using var eventApiMock = new NativeMock<ISdl2EventNativeApi>();
-      eventApiMock.Setup<ISdl2EventNativeApi.SDL_PollEventDelegate> (e => e.SDL_PollEvent, (out SdlEvent ev) =>
+      using var eventApiMock = new NativeMock<ISdl3EventNativeApi>();
+      eventApiMock.Setup<ISdl3EventNativeApi.SDL_PollEventDelegate> (e => e.SDL_PollEvent, (out SdlEvent ev) =>
       {
         ev = new SdlEvent();
         Unsafe.AsRef (in ev.Type) = SdlEventType.UserEvent;
@@ -226,8 +226,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
     [Test]
     public void Wait()
     {
-      using var eventApiMock = new NativeMock<ISdl2EventNativeApi>();
-      eventApiMock.Setup<ISdl2EventNativeApi.SDL_WaitEventDelegate> (e => e.SDL_WaitEvent, (out SdlEvent ev) =>
+      using var eventApiMock = new NativeMock<ISdl3EventNativeApi>();
+      eventApiMock.Setup<ISdl3EventNativeApi.SDL_WaitEventDelegate> (e => e.SDL_WaitEvent, (out SdlEvent ev) =>
       {
         ev = new SdlEvent();
         Unsafe.AsRef (in ev.Type) = SdlEventType.UserEvent;
@@ -243,8 +243,8 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Events
     [Test]
     public void Wait_WithTimeout()
     {
-      using var eventApiMock = new NativeMock<ISdl2EventNativeApi>();
-      eventApiMock.Setup<ISdl2EventNativeApi.SDL_WaitEventTimeoutDelegate> (e => e.SDL_WaitEventTimeout, (out SdlEvent ev, int timeoutInMilliseconds) =>
+      using var eventApiMock = new NativeMock<ISdl3EventNativeApi>();
+      eventApiMock.Setup<ISdl3EventNativeApi.SDL_WaitEventTimeoutDelegate> (e => e.SDL_WaitEventTimeout, (out SdlEvent ev, int timeoutInMilliseconds) =>
       {
         Assert.That (timeoutInMilliseconds, Is.EqualTo (60_000));
 

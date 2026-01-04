@@ -2,9 +2,9 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.TestInfrastructure
 {
   using Sdl.Interop;
 
-  public class Sdl2ErrorNativeApiWrapper : SdlNativeApiWrapperBase<ISdl2ErrorApi>, ISdl2ErrorNativeApi
+  public class Sdl3ErrorNativeApiWrapper : SdlNativeApiWrapperBase<ISdl3ErrorApi>, ISdl3ErrorNativeApi
   {
-    public Sdl2ErrorNativeApiWrapper (ISdl2ErrorApi innerNativeApi)
+    public Sdl3ErrorNativeApiWrapper (ISdl3ErrorApi innerNativeApi)
       : base (innerNativeApi)
     {
     }

@@ -8,7 +8,7 @@
 
   internal static class UnsafeNativeMethods
   {
-    private const string c_sdlName = "SDL2_image";
+    private const string c_sdlName = "SDL3_image";
     private const CallingConvention c_callingConvention = CallingConvention.Cdecl;
 
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]

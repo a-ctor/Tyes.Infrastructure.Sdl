@@ -11,9 +11,9 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.TestInfrastructure
       return new (mock.Object);
     }
 
-    public static NativeMock<ISdl2ErrorNativeApi> AsNativeMock (this Mock<ISdl2ErrorApi> errorApi)
+    public static NativeMock<ISdl3ErrorNativeApi> AsNativeMock (this Mock<ISdl3ErrorApi> errorApi)
     {
-      return new (new Sdl2ErrorNativeApiWrapper (errorApi.Object));
+      return new (new Sdl3ErrorNativeApiWrapper (errorApi.Object));
     }
   }
 }

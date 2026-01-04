@@ -4,7 +4,7 @@ namespace Tyes.Infrastructure.Sdl.Interop
 
   internal static partial class UnsafeNativeMethods
   {
-    private const string c_sdlName = "SDL2";
+    private const string c_sdlName = "SDL3";
     private const CallingConvention c_callingConvention = CallingConvention.Cdecl;
   }
 }
