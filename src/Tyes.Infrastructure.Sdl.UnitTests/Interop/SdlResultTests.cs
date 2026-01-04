@@ -16,7 +16,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Interop
     [Test]
     public void Unwrap_NegativeResult()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("Error");
       errorApiMock.Setup (e => e.SDL_ClearError());
 
@@ -28,7 +28,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Interop
     [Test]
     public void Unwrap_PositiveResult()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("Error");
       errorApiMock.Setup (e => e.SDL_ClearError());
 
@@ -40,7 +40,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Interop
     [Test]
     public void UnwrapT()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ((string?) null);
 
       using var errorApiNativeMock = errorApiMock.AsNativeMock();
@@ -51,7 +51,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests.Interop
     [Test]
     public void UnwrapT_Error()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("Error");
       errorApiMock.Setup (e => e.SDL_ClearError());
 

@@ -128,7 +128,7 @@ namespace Tyes.Infrastructure.Sdl.Render
         UnsafeNativeMethods.SDL_RenderFillRectsF (this, ptr, rectangles.Length).Unwrap();
     }
 
-    public void Present() => UnsafeNativeMethods.SDL_RenderPresent (this).Unwrap();
+    public void Present() => UnsafeNativeMethods.SDL_RenderPresent (this).UnwrapTrue();
 
     public void Draw (SdlTexture texture, in Rectangle source, Point destination)
     {

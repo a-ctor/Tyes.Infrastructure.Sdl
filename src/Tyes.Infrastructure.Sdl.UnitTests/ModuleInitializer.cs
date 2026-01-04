@@ -8,7 +8,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests
     [ModuleInitializer]
     public static void Initialize()
     {
-      NativeLibraryDummy.Load ("SDL2");
+      NativeLibraryDummy.Load ("SDL3");
 
       NativeMockRegistry.Initialize();
       NativeMockRegistry.RegisterFromAssembly (typeof(ModuleInitializer).Assembly);

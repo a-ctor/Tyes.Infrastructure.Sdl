@@ -6,15 +6,15 @@ namespace Tyes.Infrastructure.Sdl.Interop
 
   internal static partial class UnsafeNativeMethods
   {
-    /// <returns><c>0</c> on success, negative on failure. Use <c>SDL_GetError</c> for more information.</returns>
+    /// <returns><c>true</c> on success, <c>false</c> on failure. Use <c>SDL_GetError</c> for more information.</returns>
     [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlResult SDL_Init (SdlInitializationFlags sdlInitializationFlags);
+    public static extern SdlBoolResult SDL_Init (SdlInitializationFlags sdlInitializationFlags);
 
-    /// <returns><c>0</c> on success, negative on failure. Use <c>SDL_GetError</c> for more information.</returns>
+    /// <returns><c>true</c> on success, <c>false</c> on failure. Use <c>SDL_GetError</c> for more information.</returns>
     [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlResult SDL_InitSubSystem (SdlInitializationFlags sdlInitializationFlags);
+    public static extern SdlBoolResult SDL_InitSubSystem (SdlInitializationFlags sdlInitializationFlags);
 
 
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]

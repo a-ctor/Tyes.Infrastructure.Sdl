@@ -10,7 +10,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests
     [Test]
     public void ClearLastError()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_ClearError());
 
       using var errorApiNativeMock = errorApiMock.AsNativeMock();
@@ -22,7 +22,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests
     [Test]
     public void GetLastError()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("Error");
 
       using var errorApiNativeMock = errorApiMock.AsNativeMock();
@@ -33,7 +33,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests
     [Test]
     public void GetLastError_EmptyStringIsConvertedToNull()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("");
 
       using var errorApiNativeMock = errorApiMock.AsNativeMock();
@@ -44,7 +44,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests
     [Test]
     public void GetLastError_NullPointerIsConvertedToNull()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ((string?) null);
 
       using var errorApiNativeMock = errorApiMock.AsNativeMock();
@@ -56,7 +56,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests
     [Test]
     public void GetSdlExceptionFromLastError()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ("Error");
       errorApiMock.Setup (e => e.SDL_ClearError());
 
@@ -68,7 +68,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests
     [Test]
     public void GetSdlExceptionFromLastError_GenericMessageIsUsedIfNoErrorWasFound()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_GetError()).Returns ((string?) null);
       errorApiMock.Setup (e => e.SDL_ClearError());
 
@@ -81,7 +81,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests
     [Test]
     public void SetLastError()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_SetError ("Error")).Returns (0);
 
       using var errorApiNativeMock = errorApiMock.AsNativeMock();
@@ -98,7 +98,7 @@ namespace Tyes.Infrastructure.Sdl.UnitTests
     [Test]
     public void SetLastError_SanitizesErrorMessage()
     {
-      var errorApiMock = Mock<ISdl2ErrorApi>();
+      var errorApiMock = Mock<ISdl3ErrorApi>();
       errorApiMock.Setup (e => e.SDL_SetError ("Error%%%%23%%")).Returns (0);
 
       using var errorApiNativeMock = errorApiMock.AsNativeMock();

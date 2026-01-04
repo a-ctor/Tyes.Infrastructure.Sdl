@@ -166,7 +166,7 @@ namespace Tyes.Infrastructure.Sdl.Interop
 
     [MustUseReturnValue]
     [DllImport (c_sdlName, CallingConvention = c_callingConvention)]
-    public static extern SdlResult SDL_RenderPresent (SdlRenderer renderer);
+    public static extern SdlBoolResult SDL_RenderPresent (SdlRenderer renderer);
 
 
     [MustUseReturnValue]

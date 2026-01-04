@@ -4,7 +4,7 @@ namespace Tyes.Infrastructure.Sdl
   using Interop;
   using Video;
 
-  public static partial class Sdl2
+  public static partial class Sdl
   {
     public static bool IsScreenSaverEnabled => UnsafeNativeMethods.SDL_IsScreenSaverEnabled();
 

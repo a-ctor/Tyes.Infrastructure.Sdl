@@ -1,6 +1,6 @@
 namespace Tyes.Infrastructure.Sdl.UnitTests.TestInfrastructure
 {
-  public interface ISdl2ErrorApi
+  public interface ISdl3ErrorApi
   {
     void SDL_ClearError();
 
